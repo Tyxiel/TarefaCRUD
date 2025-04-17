@@ -1,0 +1,67 @@
+﻿@model IEnumerable<TarefaCRUD.Models.Tarefa>
+
+@{
+    ViewData["Title"] = "Tarefas";
+}
+
+<div class="container">
+    <h1 class="text-center">Tarefas</h1>
+    <p class="text-right">
+        <a asp-action="Create" class="btn btn-primary">Criar Nova Tarefa</a>
+    </p>
+    <table id="dataTable" class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DataInicio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prazo)
+                </th>
+                <th>Responsável</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prioridade)
+                </th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                string prioridadeClass = item.Prioridade switch
+                {
+                    TarefaCRUD.Models.PrioridadeEnum.Alta => "badge bg-danger",
+                    TarefaCRUD.Models.PrioridadeEnum.Media => "badge bg-warning text-dark",
+                    TarefaCRUD.Models.PrioridadeEnum.Baixa => "badge bg-success",
+                    _ => "badge bg-secondary"
+                };
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Descricao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DataInicio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prazo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdPessoaNavigation.NomePessoa)
+                    </td>
+                    <td>
+                        <span class="@prioridadeClass">@item.Prioridade</span>
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.IdTarefa" class="btn btn-sm btn-primary">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.IdTarefa" class="btn btn-sm btn-info">Detalhes</a>
+                        <a asp-action="Delete" asp-route-id="@item.IdTarefa" class="btn btn-sm btn-danger">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,39 @@
+﻿@model TarefaCRUD.Models.Pessoa
+
+@{
+    ViewData["Title"] = "Criar Pessoa";
+}
+
+<div class="container">
+    <h1 class="text-center">Criar Pessoa</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="NomePessoa" class="control-label"></label>
+                    <input asp-for="NomePessoa" class="form-control" />
+                    <span asp-validation-for="NomePessoa" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Criar" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index" class="btn btn-secondary">Voltar para a lista</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

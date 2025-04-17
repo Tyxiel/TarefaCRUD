@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TarefaCRUD</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TarefaCRUD.styles.css" asp-append-version="true" />
+    <link href="https://cdn.datatables.net/v/bs5/dt-2.2.2/datatables.min.css" rel="stylesheet" integrity="sha384-M6C9anzq7GcT0g1mv0hVorHndQDVZLVBkRVdRb2SsQT7evLamoeztr1ce+tvn+f2" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 col-lg-2 p-0 bg-light">
+                <nav class="navbar navbar-expand-md navbar-light bg-light flex-column">
+                    <div class="navbar-brand text-center py-3" style="font-size: 24px; font-weight: bold;">TechCorp</div>
+                    <ul class="navbar-nav flex-column w-100">
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center py-3 px-4" asp-area="" asp-controller="Home" asp-action="Index" style="font-size: 18px;">
+                                <i class='bx bx-home' style="font-size: 20px; margin-right: 10px;"></i> Início
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center py-3 px-4" asp-area="" asp-controller="Pessoa" asp-action="Index" style="font-size: 18px;">
+                                <i class='bx bx-body' style="font-size: 20px; margin-right: 10px;"></i> Pessoas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center py-3 px-4" asp-area="" asp-controller="Tarefa" asp-action="Index" style="font-size: 18px;">
+                                <i class='bx bx-task' style="font-size: 20px; margin-right: 10px;"></i> Tarefas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center py-3 px-4" asp-area="" asp-controller="Home" asp-action="Privacy" style="font-size: 18px;">
+                                <i class='bx bx-paperclip' style="font-size: 20px; margin-right: 10px;"></i> Privacidade
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-md-10 col-lg-10">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light border-top text-center py-3 text-muted">
+        <div class="container">
+            <span>&copy; 2025 - <strong>TarefaCRUD</strong></span>
+            <span class="mx-2">|</span>
+            <a class="text-decoration-none text-primary" asp-controller="Home" asp-action="Privacy">Política de privacidade</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/v/bs5/dt-2.2.2/datatables.min.js" integrity="sha384-k90VzuFAoyBG5No1d5yn30abqlaxr9+LfAPp6pjrd7U3T77blpvmsS8GqS70xcnH" crossorigin="anonymous"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

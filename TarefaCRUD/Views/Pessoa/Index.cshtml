@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TarefaCRUD.Models.Pessoa>
+
+@{
+    ViewData["Title"] = "Pessoas";
+}
+
+<div class="container">
+    <h1 class="text-center">Pessoas</h1>
+    <p class="text-right">
+        <a asp-action="Create" class="btn btn-primary">Criar Nova Pessoa</a>
+    </p>
+    <table id="dataTable" class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NomePessoa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomePessoa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.IdPessoa" class="btn btn-sm btn-primary">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.IdPessoa" class="btn btn-sm btn-info">Detalhes</a>
+                        <a asp-action="Delete" asp-route-id="@item.IdPessoa" class="btn btn-sm btn-danger">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

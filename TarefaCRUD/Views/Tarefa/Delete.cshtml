@@ -1,0 +1,59 @@
+﻿@model TarefaCRUD.Models.Tarefa
+
+@{
+    ViewData["Title"] = "Excluir Tarefa";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Excluir Tarefa</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h3>Tem certeza que deseja excluir essa tarefa?</h3>
+            <dl class="row mt-3">
+                <dt class="col-sm-3 text-truncate fw-bold">
+                    @Html.DisplayNameFor(model => model.Descricao)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Descricao)
+                </dd>
+
+                <dt class="col-sm-3 text-truncate fw-bold">
+                    @Html.DisplayNameFor(model => model.DataInicio)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.DataInicio)
+                </dd>
+
+                <dt class="col-sm-3 text-truncate fw-bold">
+                    @Html.DisplayNameFor(model => model.Prazo)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Prazo)
+                </dd>
+
+                <dt class="col-sm-3 text-truncate fw-bold">
+                    Responsável
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.IdPessoaNavigation.NomePessoa)
+                </dd>
+
+                <dt class="col-sm-3 text-truncate fw-bold">
+                    @Html.DisplayNameFor(model => model.Prioridade)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Prioridade)
+                </dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="IdTarefa" />
+                <div class="mt-4 d-flex justify-content-between">
+                    <input type="submit" value="Excluir" class="btn btn-danger" />
+                    <a asp-action="Index" class="btn btn-secondary">Voltar para a lista</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
