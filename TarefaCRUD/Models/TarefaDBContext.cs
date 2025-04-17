@@ -45,6 +45,8 @@ namespace TarefaCRUD.Models
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("email");
+
+                entity.HasIndex(e => e.Email).isUnique();
             });
 
             modelBuilder.Entity<Tarefa>(entity =>
