@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TarefaCRUD.Models
 {
+    [Index(nameof(Email), IsUnique = true)]
     public partial class Pessoa
     {
         public Pessoa()
