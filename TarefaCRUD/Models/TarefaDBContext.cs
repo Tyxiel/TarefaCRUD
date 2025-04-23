@@ -21,8 +21,7 @@ namespace TarefaCRUD.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                // RECOMENDADO: mover para appsettings.json
-                optionsBuilder.UseSqlServer("Server=PC03LAB2814\\SENAI; Database=TarefaDB; User=sa; Password=senai.123");
+
             }
         }
 
