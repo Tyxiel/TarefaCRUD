@@ -57,3 +57,7 @@ Este projeto é ideal para servir como base para uma API RESTful ou uma aplicaç
 * Desenvolver uma API RESTful utilizando este DbContext.
 * Criar uma interface de usuário (Web MVC, Blazor, ou frontend SPA) para interagir com os dados.
 * Adicionar validações e lógica de negócios.
+
+## Licença
+
+Este projeto é licenciado sob a **GNU Affero General Public License v3.0**.
